@@ -1,4 +1,0 @@
-Django
-pandas
-openpyxl
-requests
