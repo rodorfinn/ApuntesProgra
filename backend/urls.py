@@ -1,0 +1,38 @@
+"""
+URL configuration for backend project.
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/6.0/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path
+
+from logica.views import primer_endpoint, get_personas, create_tortuga, get_tortugas, get_tortugas_by_velocidad_and_fuerza,  get_tortugas_by_id, get_pokemon, get_chistes, get_advice
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/primero', primer_endpoint),
+    path('api/personas', get_personas),
+    path('api/create_tortuga', create_tortuga),
+    path('api/get_tortugas', get_tortugas),
+    path('api/get_tortugas/<int:velocidad>/<int:fuerza>', get_tortugas_by_velocidad_and_fuerza),
+    path('api/get_tortugas/<int:id>', get_tortugas_by_id),
+    path('api/get_pokemons', get_pokemon),
+    path('api/get_chistes', get_chistes),
+    path('api/get_advice', get_advice),
+]
+
+# === PLANTILLA: Conectar nueva ruta ===
+# from logica.views import get_nombremodelos
+# urlpatterns: path('api/get_nombremodelos', get_nombremodelos),
